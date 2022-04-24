@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 import fallback from '../public/images/fallback.png'
 type Props = {
@@ -11,17 +11,19 @@ type Props = {
 
 const LaunchCard = ({ date, id, image, missionName, rocketName }: Props) => {
 	return (
-		<div className="p-5 flex flex-col space-y-1 m-5 rounded shadow hover:shadow-lg max-w-sm duration-200">
-			<img
-				src={image || fallback.src}
-				alt={missionName}
-				className="h-48 object-cover"
-				loading="lazy"
-			/>
-			<p className="text-2xl">Mission: {missionName}</p>
-			<p>Date: {new Date(date).toDateString()}</p>
-			<p>Rocket: {rocketName}</p>
-		</div>
+		<Link href={`/launches/${id}`}>
+			<a className="p-5 flex flex-col space-y-1 m-5 rounded shadow hover:shadow-lg max-w-sm duration-200">
+				<img
+					src={image || fallback.src}
+					alt={missionName}
+					className="h-48 object-cover"
+					loading="lazy"
+				/>
+				<p className="text-2xl">Mission: {missionName}</p>
+				<p>Date: {new Date(date).toDateString()}</p>
+				<p>Rocket: {rocketName}</p>
+			</a>
+		</Link>
 	)
 }
 
