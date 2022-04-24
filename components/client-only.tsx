@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 
-// TODO: handle types
 const ClientOnly = ({ children, ...delegated }: any) => {
 	const [hasMounted, setHasMounted] = useState(false)
 

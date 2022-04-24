@@ -61,9 +61,7 @@ const LaunchList = () => {
 	if (launches?.length === 0) return <>NO LAUNCH FOUND</>
 	return (
 		<>
-			<div className="flex justify-between">
-				<h1 className="text-xl lg:text-3xl">Space X Launches</h1>
-			</div>
+			<h1 className="text-xl lg:text-3xl p-5">Space X Launches</h1>
 			<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-0 mx-auto">
 				{launches?.map(
 					({

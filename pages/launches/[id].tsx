@@ -10,7 +10,6 @@ type Props = {
 }
 
 const Launch = ({ launch }: Props) => {
-	console.log(launch)
 	return (
 		<div className="container mx-auto">
 			<div className="flex flex-col lg:flex-row p-5 space-y-5 lg:space-y-0 lg:space-x-5">
