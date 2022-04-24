@@ -4,9 +4,11 @@ import LaunchList from '../components/launch-list'
 
 const Home: NextPage = () => {
 	return (
-		<ClientOnly>
-			<LaunchList />
-		</ClientOnly>
+		<div className='container mx-auto'>
+			<ClientOnly>
+				<LaunchList />
+			</ClientOnly>
+		</div>
 	)
 }
 
