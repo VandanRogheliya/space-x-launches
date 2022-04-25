@@ -67,7 +67,7 @@ const LaunchList = () => {
 	if (launches?.length === 0) return <>NO LAUNCH FOUND</>
 	return (
 		<>
-			<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-0 mx-auto">
+			<div className="flex flex-wrap gap-5 mx-5 justify-center">
 				{launches?.map(
 					({
 						launch_date_utc,

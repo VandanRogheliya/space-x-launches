@@ -18,13 +18,13 @@ const Launch = ({ launch }: Props) => {
 					className="h-60 object-cover lg:w-64"
 				/>
 				<div className="flex flex-col space-y-2">
-					<h1 className="text-xl lg:text-3xl">{launch.mission_name}</h1>
+					<h1 className="text-3xl">{launch.mission_name}</h1>
 					<p>{new Date(launch.launch_date_utc).toDateString()}</p>
 					<p>Success: {launch.launch_success ? 'True' : 'False'}</p>
 					<p>Site: {launch.launch_site.site_name_long}</p>
 					<p>{launch.details}</p>
 					<div className="flex flex-col">
-						<h2 className="text-lg lg:text-xl">Rocket</h2>
+						<h2 className="text-xl">Rocket</h2>
 						<p>Name: {launch?.rocket?.rocket_name}</p>
 						<p>Type: {launch?.rocket?.rocket_type}</p>
 					</div>
