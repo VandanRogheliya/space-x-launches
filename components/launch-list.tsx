@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import useInfiniteScroll from 'react-infinite-scroll-hook'
 import { LaunchType } from '../lib/types/launch'
 import LaunchCard from './launch-card'
+import Spinner from './spinner'
 
 const QUERY = gql`
 	query GetLaunches($offset: Int, $limit: Int) {
@@ -49,19 +50,23 @@ const LaunchList = () => {
 	}
 
 	const launches = data?.launchesPast
-	const [infiniteScrollContainerRef] = useInfiniteScroll({
+	const [infiniteScrollLoaderRef] = useInfiniteScroll({
 		loading: !!launches && launches?.length > 0 && loading,
 		hasNextPage,
 		onLoadMore: () => fetchMoreHandler(),
 		disabled: !!error,
 	})
 
-	if (loading) return <>LOADING</>
+	if (loading)
+		return (
+			<div className="w-full flex justify-center items-center my-10">
+				<Spinner />
+			</div>
+		)
 	if (error) return <>ERROR</>
 	if (launches?.length === 0) return <>NO LAUNCH FOUND</>
 	return (
 		<>
-			<h1 className="text-xl lg:text-3xl p-5">Space X Launches</h1>
 			<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-0 mx-auto">
 				{launches?.map(
 					({
@@ -83,7 +88,12 @@ const LaunchList = () => {
 				)}
 			</div>
 			{hasNextPage && (
-				<p ref={infiniteScrollContainerRef}>LOADING INF SCROLL</p>
+				<div
+					className="w-full flex justify-center items-center my-10"
+					ref={infiniteScrollLoaderRef}
+				>
+					<Spinner />
+				</div>
 			)}
 		</>
 	)

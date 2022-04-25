@@ -1,0 +1,40 @@
+.svg-wrapper {
+	animation: spin 2.5s linear infinite;
+	height: 84px;
+	width: 84px;
+}
+
+.shape {
+	animation: spinner 2.25s linear infinite;
+	fill: transparent;
+	stroke: #4e52c3;
+	stroke-dasharray: 100 260;
+	stroke-dashoffset: 0;
+	stroke-width: 2px;
+}
+
+@keyframes spinner {
+	0% {
+		stroke-dasharray: 0 260;
+	}
+
+	50% {
+		stroke-dasharray: 260 260;
+		stroke-dashoffset: 0;
+	}
+
+	100% {
+		stroke-dasharray: 0 260;
+		stroke-dashoffset: -250;
+	}
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(720deg);
+	}
+}
