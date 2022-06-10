@@ -6,7 +6,7 @@ import Spinner from '../components/spinner'
 const Home: NextPage = () => {
 	return (
 		<div className="container mx-auto">
-			<h1 className="text-3xl p-5 text-center">Space X Launches</h1>
+			<h1 className="text-3xl p-5 text-center">Space-X Launches</h1>
 			<ClientOnly>
 				<LaunchList />
 			</ClientOnly>
